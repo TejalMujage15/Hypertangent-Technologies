@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>19virusdata.com - Covid-19 Global Data Dashboard</title>
+
+  <!-- Google Fonts: Inter (Headings) & Space Mono (Labels, Values, Data) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="dashboard-container">
+
+    <!-- 1. Header Section (Tall Violet Gradient with Fade-In Animation) -->
+    <header class="header-section">
+      <div class="honors-badge animate-fade-in">
+        W.
+        <span>Honors</span>
+      </div>
+
+      <div class="header-top">
+        <div>
+          <h1 class="dashboard-title animate-fade-in">Covid-19<br>Global Data<br>Dashboard</h1>
+          <p class="last-updated-text animate-fade-in-delayed">Last updated: 31.05.20 &bull; 23:59 GMT</p>
+        </div>
+        <button class="info-link animate-fade-in" type="button">Information</button>
+      </div>
+
+      <div class="header-bottom-wrapper animate-fade-in-delayed">
+        <hr class="header-divider" />
+
+        <div class="top-metrics-grid">
+          <div class="metric-item">
+            <div id="num-cases" class="metric-value">0</div>
+            <div class="metric-name">Cases</div>
+            <div class="metric-delta-badge">+ 124,182</div>
+          </div>
+
+          <div class="metric-item">
+            <div id="num-fatalities" class="metric-value">0</div>
+            <div class="metric-name">Fatalities</div>
+            <div class="metric-delta-badge">+ 4,084</div>
+          </div>
+
+          <div class="metric-item">
+            <div id="num-active" class="metric-value">0</div>
+            <div class="metric-name">Active Cases</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- 2. Virus cases by country (Light Gray Section - Fade-Up) -->
+    <section class="light-section animate-fade-up">
+      <div class="section-head">
+        <h2 class="section-title">Virus cases by country</h2>
+        <p class="section-sub">Confirmed cases</p>
+      </div>
+
+      <div class="toggle-tab-group">
+        <button class="tab-button tab-cases active" data-mode="total">Total Cases</button>
+        <button class="tab-button tab-cases" data-mode="active">Active Cases</button>
+      </div>
+
+      <div id="cases-list" class="country-rows-wrapper">
+        <!-- Rendered by script.js -->
+      </div>
+    </section>
+
+    <!-- 3. Recent virus growth by country (Fade-Up) -->
+    <section class="light-section animate-fade-up">
+      <div class="section-head">
+        <h2 class="section-title">Recent virus growth by country</h2>
+        <p class="section-sub">Increase in cases over past 24 hours - top 8 countries</p>
+      </div>
+
+      <div class="toggle-tab-group">
+        <button class="tab-button tab-growth active" data-mode="number">By Number</button>
+        <button class="tab-button tab-growth" data-mode="percent">By Percent</button>
+      </div>
+
+      <div id="growth-chart" class="growth-chart-box">
+        <!-- Rendered by script.js -->
+      </div>
+    </section>
+
+    <!-- 4. Virus spread by country (Dark Charcoal Section - Fade-Up) -->
+    <section class="dark-section animate-fade-up">
+      <div class="section-head">
+        <h2 class="section-title">Virus spread by country</h2>
+        <p class="section-sub">Confirmed cases in relation to population size</p>
+      </div>
+
+      <div id="spread-grid" class="spread-circles-grid">
+        <!-- Rendered by script.js -->
+      </div>
+    </section>
+
+    <!-- 5. Fatalities (Fade-Up) -->
+    <section class="light-section animate-fade-up">
+      <div class="section-head">
+        <h2 class="section-title">Fatalities</h2>
+        <p class="section-sub">Number and rate of fatalities in relation to cases</p>
+      </div>
+
+      <div class="toggle-tab-group">
+        <button class="tab-button tab-fatalities active" data-mode="number">By Number</button>
+        <button class="tab-button tab-fatalities" data-mode="rate">By Rate</button>
+      </div>
+
+      <div id="fatalities-list" class="country-rows-wrapper">
+        <!-- Rendered by script.js -->
+      </div>
+    </section>
+
+    <!-- 6. Recoveries (Fade-Up) -->
+    <section class="recoveries-section animate-fade-up">
+      <div class="section-head">
+        <h2 class="section-title">Recoveries</h2>
+        <p class="section-sub">Global recoveries compared to global fatalities</p>
+      </div>
+
+      <div class="recoveries-bubble-area">
+        <div class="fatalities-left-box">
+          <div class="fatalities-num-val">370,506</div>
+          <div class="fatalities-lbl-text">Fatalities</div>
+          <div class="fatalities-pink-circle"></div>
+        </div>
+
+        <div class="recoveries-huge-circle">
+          <div class="recoveries-num-val">2,734,546</div>
+          <div class="recoveries-lbl-text">Recoveries</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Trend (Fade-Up) -->
+    <section class="light-section animate-fade-up">
+      <div class="section-head">
+        <h2 class="section-title">Trend</h2>
+        <p class="section-sub">Total number of cases globally - past 7 days</p>
+      </div>
+
+      <div class="trend-visual-area">
+        <div class="y-axis-labels">
+          <span>6.2m</span>
+          <span>6.1m</span>
+          <span>6.0m</span>
+          <span>5.8m</span>
+          <span>5.7m</span>
+          <span>5.6m</span>
+          <span>5.5m</span>
+        </div>
+
+        <div class="trend-grid-box">
+          <div class="trend-horizontal-gridlines">
+            <div class="gridline"></div>
+            <div class="gridline"></div>
+            <div class="gridline"></div>
+            <div class="gridline"></div>
+            <div class="gridline"></div>
+            <div class="gridline"></div>
+            <div class="gridline"></div>
+          </div>
+
+          <div id="trend-dots-layer" class="trend-dots-layer">
+            <!-- Rendered by script.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Footer Section (Fade-Up) -->
+    <footer class="footer-area animate-fade-up">
+      <p class="footer-author">A data visualisation project by <strong>W&ndash;Interactive</strong></p>
+      <p class="footer-copy">&copy; Copyright 2020 &ndash; All Rights Reserved</p>
+
+      <p class="share-label">Share this site:</p>
+      <div class="social-bar">
+        <a href="#" class="social-btn" aria-label="LinkedIn">in</a>
+        <a href="#" class="social-btn" aria-label="Facebook">f</a>
+        <a href="#" class="social-btn" aria-label="Twitter">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+          </svg>
+        </a>
+      </div>
+
+      <button id="return-top" class="top-scroll-btn" type="button">Return to top</button>
+    </footer>
+
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
